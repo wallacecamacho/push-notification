@@ -27,10 +27,11 @@ messaging.onBackgroundMessage(function(payload) {
     data: '',
     body: payload.notification.body,
     tag: payload.notification.tag,
+    icon: payload.notification.image,
     icon: '/icon.png',
     image: payload.notification.image,
     vibrate: [200, 100, 200],
-    badge: "https://spyna.it/icons/favicon.ico",
+    //badge: "https://spyna.it/icons/favicon.ico",
     click_action: "https://via.placeholder.com/128/ff0000"
   };
 
