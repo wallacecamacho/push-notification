@@ -2,7 +2,6 @@ importScripts('https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/8.1.1/firebase-messaging.js');
 importScripts('../src/firebase-init');
 
-
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
@@ -16,9 +15,4 @@ messaging.onBackgroundMessage(function(payload) {
 
   self.registration.showNotification(notificationTitle,
     notificationOptions);
-});
-
-messaging.onMessage((payload) => {
-  console.log('Message received. ', payload);
-  // ...
 });
