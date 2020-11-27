@@ -14,4 +14,26 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-console.log('worker')
+
+// If you would like to customize notifications that are received in the
+// background (Web app is closed or not in browser focus) then you should
+// implement this optional method.
+// [START on_background_message]
+messaging.onBackgroundMessage(function(payload) {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  // Customize notification here
+  const notificationTitle = 'Background Message Title';
+  const notificationOptions = {
+    data: '',
+    body: payload.notification.body,
+    tag: payload.notification.tag,
+    icon: '/icon.png',
+    image: payload.notification.image,
+    vibrate: [200, 100, 200],
+    badge: "https://spyna.it/icons/favicon.ico",
+    click_action: "https://via.placeholder.com/128/ff0000"
+  };
+
+  self.registration.showNotification(payload.notification.title,
+    notificationOptions);
+});
