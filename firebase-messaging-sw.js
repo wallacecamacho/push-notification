@@ -12,7 +12,6 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
@@ -20,10 +19,15 @@ messaging.onBackgroundMessage(function(payload) {
   // Customize notification here
   const notificationTitle = 'Background Message Title';
   const notificationOptions = {
-    body: 'Background Message body.',
-    icon: '/firebase-logo.png'
+    data: url,
+    body: text,
+    icon: '/favicon.png',
+    vibrate: [200, 100, 200],
+    tag: tag,
+    image: '/icon.png',
+    badge: "https://spyna.it/icons/favicon.ico",
+    actions: [{ action: "Detail", title: "View", icon: "https://via.placeholder.com/128/ff0000" }]
   };
 
-  self.registration.showNotification(notificationTitle,
-    notificationOptions);
+  self.registration.showNotification(notificationTitle, notificationOptions);
 });
