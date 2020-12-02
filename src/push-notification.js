@@ -15,7 +15,6 @@ console.log('init 1');
 
 export const initializeFirebase = () => {
   console.log('init 2');
-
   
   console.log('initializeFirebase 1');
 
